@@ -1,0 +1,318 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+
+  <title>Memory Game</title>
+  <link rel="stylesheet prefetch" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.6.1/css/font-awesome.min.css">
+  <link rel="stylesheet prefetch" href="https://fonts.googleapis.com/css?family=Coda">
+  <link rel="stylesheet prefetch" href="https://fonts.googleapis.com/css?family=Gloria+Hallelujah|Permanent+Marker">
+  <!-- Bootstrap -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta3/dist/css/bootstrap.min.css" rel="stylesheet"
+    integrity="sha384-eOJMYsd53ii+scO/bJGFsiCZc+5NDVN2yr8+0RDqr0Ql0h+rP48ckxlpbzKgwra6" crossorigin="anonymous">
+  <!-- Google Fonts -->
+  <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;600&display=swap" rel="stylesheet">
+  <!-- CSS Stylesheet -->
+  <link rel="stylesheet" href="styles.css">
+</head>
+
+<body>
+  <div class="wrapper">
+    <div class="game-header">
+      <h1>Memory Game</h1>
+      <div>
+        <button type="button" class="header-quit btn btn-dark">Quit</button>
+      </div>
+    </div>
+
+    <div id="splash" class="screen">
+        <div class="splash-content">
+          <h3>📝 Instructions</h3>
+          <p>Choose 2 cards at each turn. Match all the pairs to win the game!</p>
+          
+          <div class="enter-name">
+            <div class="player-name-group">
+              <label for="name">Player Name:</label>
+              <input type="text" name="name" id="name">
+            </div>
+            <button type="button" class="btn btn-warning next">Next</button>
+          </div>
+          <span class="namealert"></span>
+
+        </div>
+    </div>
+
+    <div id="level" class="screen">
+      <div class="level-content">
+        <h3>Choose a Difficulty Level</h3>
+        <div class="level">
+          <button type="button" class="btn btn-dark easy-btn">Easy</button>
+          <button type="button" class="btn btn-dark difficult-btn">Difficult</button>
+        </div>
+      </div>
+    </div>
+
+    <div id="game-screen" class="screen easy">
+      <section class="score-panel">
+        <p>You have made <span class="easy-moves">0</span> move(s).</p>
+        <div class="timer">
+          <p>0 mins 0 secs</p>
+        </div>
+      </section>
+      <section class="memory-game">
+        <div class="memory-card" data-framework="eyes">
+          <img class="front-face" src="images/1f440.png" alt="Eyes" />
+          <div class="back-face"></div>
+        </div>
+        <div class="memory-card" data-framework="eyes">
+          <img class="front-face" src="images/1f440.png" alt="Eyes" />
+          <div class="back-face"></div>
+        </div>
+        <div class="memory-card" data-framework="ghost">
+          <img class="front-face" src="images/1f47b.png" alt="Ghost" />
+          <div class="back-face"></div>
+        </div>
+        <div class="memory-card" data-framework="ghost">
+          <img class="front-face" src="images/1f47b.png" alt="Ghost" />
+          <div class="back-face"></div>
+        </div>
+        <div class="memory-card" data-framework="squinting-face">
+          <img class="front-face" src="images/1f61d.png" alt="Squinting Face With Tongue" />
+          <div class="back-face"></div>
+        </div>
+        <div class="memory-card" data-framework="squinting-face">
+          <img class="front-face" src="images/1f61d.png" alt="Squinting Face With Tongue" />
+          <div class="back-face"></div>
+        </div>
+        <div class="memory-card" data-framework="face-with-tears">
+          <img class="front-face" src="images/1f602.png" alt="Face With Tears Of Joy" />
+          <div class="back-face"></div>
+        </div>
+        <div class="memory-card" data-framework="face-with-tears">
+          <img class="front-face" src="images/1f602.png" alt="Face With Tears Of Joy" />
+          <div class="back-face"></div>
+        </div>
+        <div class="memory-card" data-framework="hug">
+          <img class="front-face" src="images/1f917.png" alt="Hugging Face" />
+          <div class="back-face"></div>
+        </div>
+        <div class="memory-card" data-framework="hug">
+          <img class="front-face" src="images/1f917.png" alt="Hugging Face" />
+          <div class="back-face"></div>
+        </div>
+        <div class="memory-card" data-framework="smiling-hearts">
+          <img class="front-face" src="images/1f970.png" alt="Smiling Face With Hearts" />
+          <div class="back-face"></div>
+        </div>
+        <div class="memory-card" data-framework="smiling-hearts">
+          <img class="front-face" src="images/1f970.png" alt="Smiling Face With Hearts" />
+          <div class="back-face"></div>
+        </div>
+        <div class="memory-card" data-framework="monkey">
+          <img class="front-face" src="images/1f648.png" alt="Monkey" />
+          <div class="back-face"></div>
+        </div>
+        <div class="memory-card" data-framework="monkey">
+          <img class="front-face" src="images/1f648.png" alt="Monkey" />
+          <div class="back-face"></div>
+        </div>
+        <div class="memory-card" data-framework="snowman">
+          <img class="front-face" src="images/2603.png" alt="Snowman" />
+          <div class="back-face"></div>
+        </div>
+        <div class="memory-card" data-framework="snowman">
+          <img class="front-face" src="images/2603.png" alt="Snowman" />
+          <div class="back-face"></div>
+        </div>
+      </section>
+    </div>
+
+    <div id="game-screen" class="screen difficult">
+      <section class="score-panel">
+        <p>You have made <span class="difficult-moves">0</span> move(s).</p>
+        <div class="timer">
+          <p>0 mins 0 secs</p>
+        </div>
+      </section>
+      <section class="memory-game">
+        <div class="memory-card" data-framework="eyes">
+          <img class="front-face" src="images/1f440.png" alt="Eyes" />
+          <div class="back-face"></div>
+        </div>
+        <div class="memory-card" data-framework="eyes">
+          <img class="front-face" src="images/1f440.png" alt="Eyes" />
+          <div class="back-face"></div>
+        </div>
+        <div class="memory-card" data-framework="ghost">
+          <img class="front-face" src="images/1f47b.png" alt="Ghost" />
+          <div class="back-face"></div>
+        </div>
+        <div class="memory-card" data-framework="ghost">
+          <img class="front-face" src="images/1f47b.png" alt="Ghost" />
+          <div class="back-face"></div>
+        </div>
+        <div class="memory-card" data-framework="squinting-face">
+          <img class="front-face" src="images/1f61d.png" alt="Squinting Face With Tongue" />
+          <div class="back-face"></div>
+        </div>
+        <div class="memory-card" data-framework="squinting-face">
+          <img class="front-face" src="images/1f61d.png" alt="Squinting Face With Tongue" />
+          <div class="back-face"></div>
+        </div>
+        <div class="memory-card" data-framework="face-with-tears">
+          <img class="front-face" src="images/1f602.png" alt="Face With Tears Of Joy" />
+          <div class="back-face"></div>
+        </div>
+        <div class="memory-card" data-framework="face-with-tears">
+          <img class="front-face" src="images/1f602.png" alt="Face With Tears Of Joy" />
+          <div class="back-face"></div>
+        </div>
+        <div class="memory-card" data-framework="hug">
+          <img class="front-face" src="images/1f917.png" alt="Hugging Face" />
+          <div class="back-face"></div>
+        </div>
+        <div class="memory-card" data-framework="hug">
+          <img class="front-face" src="images/1f917.png" alt="Hugging Face" />
+          <div class="back-face"></div>
+        </div>
+        <div class="memory-card" data-framework="smiling-hearts">
+          <img class="front-face" src="images/1f970.png" alt="Smiling Face With Hearts" />
+          <div class="back-face"></div>
+        </div>
+        <div class="memory-card" data-framework="smiling-hearts">
+          <img class="front-face" src="images/1f970.png" alt="Smiling Face With Hearts" />
+          <div class="back-face"></div>
+        </div>
+        <div class="memory-card" data-framework="monkey">
+          <img class="front-face" src="images/1f648.png" alt="Monkey" />
+          <div class="back-face"></div>
+        </div>
+        <div class="memory-card" data-framework="monkey">
+          <img class="front-face" src="images/1f648.png" alt="Monkey" />
+          <div class="back-face"></div>
+        </div>
+        <div class="memory-card" data-framework="snowman">
+          <img class="front-face" src="images/2603.png" alt="Snowman" />
+          <div class="back-face"></div>
+        </div>
+        <div class="memory-card" data-framework="snowman">
+          <img class="front-face" src="images/2603.png" alt="Snowman" />
+          <div class="back-face"></div>
+        </div>
+
+        <div class="memory-card" data-framework="moon">
+          <img class="front-face" src="images/1f31a.png" alt="Moon" />
+          <div class="back-face"></div>
+        </div>
+        <div class="memory-card" data-framework="moon">
+          <img class="front-face" src="images/1f31a.png" alt="Moon" />
+          <div class="back-face"></div>
+        </div>
+
+        <div class="memory-card" data-framework="sunflower">
+          <img class="front-face" src="images/1f33b.png" alt="sunflower" />
+          <div class="back-face"></div>
+        </div>
+        <div class="memory-card" data-framework="sunflower">
+          <img class="front-face" src="images/1f33b.png" alt="sunflower" />
+          <div class="back-face"></div>
+        </div>
+
+        <div class="memory-card" data-framework="heart-eyes">
+          <img class="front-face" src="images/1f60d.png" alt="heart eyes" />
+          <div class="back-face"></div>
+        </div>
+        <div class="memory-card" data-framework="heart-eyes">
+          <img class="front-face" src="images/1f60d.png" alt="heart eyes" />
+          <div class="back-face"></div>
+        </div>
+
+        <div class="memory-card" data-framework="cry">
+          <img class="front-face" src="images/1f62d.png" alt="cry face" />
+          <div class="back-face"></div>
+        </div>
+        <div class="memory-card" data-framework="cry">
+          <img class="front-face" src="images/1f62d.png" alt="cry face" />
+          <div class="back-face"></div>
+        </div>
+
+        <div class="memory-card" data-framework="maple-leaf">
+          <img class="front-face" src="images/1f341.png" alt="maple leaf" />
+          <div class="back-face"></div>
+        </div>
+        <div class="memory-card" data-framework="maple-leaf">
+          <img class="front-face" src="images/1f341.png" alt="maple leaf" />
+          <div class="back-face"></div>
+        </div>
+
+        <div class="memory-card" data-framework="sweating">
+          <img class="front-face" src="images/1f613.png" alt="sweating face" />
+          <div class="back-face"></div>
+        </div>
+        <div class="memory-card" data-framework="sweating">
+          <img class="front-face" src="images/1f613.png" alt="sweating face" />
+          <div class="back-face"></div>
+        </div>
+
+        <div class="memory-card" data-framework="shut-up">
+          <img class="front-face" src="images/1f910.png" alt="shut-up face" />
+          <div class="back-face"></div>
+        </div>
+        <div class="memory-card" data-framework="shut-up">
+          <img class="front-face" src="images/1f910.png" alt="shut-up face" />
+          <div class="back-face"></div>
+        </div>
+
+        <div class="memory-card" data-framework="hot-face">
+          <img class="front-face" src="images/1f975.png" alt="hot face" />
+          <div class="back-face"></div>
+        </div>
+        <div class="memory-card" data-framework="hot-face">
+          <img class="front-face" src="images/1f975.png" alt="hot face" />
+          <div class="back-face"></div>
+        </div>
+
+        <div class="memory-card" data-framework="kiss">
+          <img class="front-face" src="images/1f619.png" alt="kissing face" />
+          <div class="back-face"></div>
+        </div>
+        <div class="memory-card" data-framework="kiss">
+          <img class="front-face" src="images/1f619.png" alt="kissing face" />
+          <div class="back-face"></div>
+        </div>
+
+        <div class="memory-card" data-framework="cold">
+          <img class="front-face" src="images/1f630.png" alt="cold face" />
+          <div class="back-face"></div>
+        </div>
+        <div class="memory-card" data-framework="cold">
+          <img class="front-face" src="images/1f630.png" alt="cold face" />
+          <div class="back-face"></div>
+        </div>
+
+
+      </section>
+    </div>
+
+
+    <div id="game-over" class="game-over screen">
+      <div class="game-over-content">
+        <h2>Congratulations! 🎉 <span class="display-name"></span></h2>
+        
+        <p>You made <span id=final-move> </span> moves in <span id=total-time> </span></p>
+        
+        <div class="game-over-btn">
+          <button type="button" class="btn btn-dark play-again">Play Again</button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+
+  <script src="https://code.jquery.com/jquery-3.5.1.js" integrity="sha256-QWo7LDvxbWT2tbbQ97B53yJnYU3WhH/C8ycbRAkjPDc="
+    crossorigin="anonymous"></script>
+  <script src="index.js"></script>
+</body>
+
+</html>
